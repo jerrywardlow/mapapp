@@ -2,7 +2,10 @@
 # vi: set ft=ruby :
 
 $script = <<SCRIPT
-
+apt-get install -qqy git
+curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+apt-get install -qqy nodejs
+npm install -g bower
 SCRIPT
 
 Vagrant.configure(2) do |config|
