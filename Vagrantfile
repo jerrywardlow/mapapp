@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-$script = <<SCRIPT
+$priv = <<SCRIPT
 apt-get install -qqy git
 apt-get install -qqy build-essential
 curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
@@ -9,7 +9,7 @@ apt-get install -qqy nodejs
 npm install -g bower
 SCRIPT
 
-$bower = <<BOWER
+$unpriv = <<SCRIPT
 cd /vagrant
 bower install angular-route#1.4.6
 bower install angularjs-geolocation#0.1.1
@@ -17,7 +17,7 @@ bower install bootstrap#3.3.5
 bower install holderjs
 bower install modernizr#3.0.0
 npm install
-BOWER
+SCRIPT
 
 Vagrant.configure(2) do |config|
   config.hostmanager.enabled = true
@@ -28,6 +28,6 @@ Vagrant.configure(2) do |config|
     v.name = "mapapp"
     v.memory = 1024
   end
-  config.vm.provision "shell", inline: $script
-  config.vm.provision "shell", inline: $bower, privileged: false
+  config.vm.provision "shell", inline: $priv
+  config.vm.provision "shell", inline: $unpriv, privileged: false
 end
