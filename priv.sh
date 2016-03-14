@@ -9,7 +9,7 @@ apt-get install -qqy git
 apt-get install -qqy build-essential
 
 #--- Node.js ---#
-curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_5.x | bash
 apt-get install -qqy nodejs
 
 #--- Bower ---#
