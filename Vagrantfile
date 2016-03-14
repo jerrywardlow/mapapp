@@ -10,6 +10,7 @@ npm install -g bower
 SCRIPT
 
 $bower = <<BOWER
+cd /vagrant
 bower install angular-route#1.4.6
 bower install angularjs-geolocation#0.1.1
 bower install bootstrap#3.3.5
