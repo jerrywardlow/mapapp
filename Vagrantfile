@@ -1,28 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-$priv = <<SCRIPT
-apt-get install -qqy git
-apt-get install -qqy build-essential
-curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
-apt-get install -qqy nodejs
-npm install -g bower
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
-apt-get update -qqy
-apt-get install -qqy mongodb-org
-SCRIPT
-
-$unpriv = <<SCRIPT
-cd /vagrant
-bower install angular-route#1.4.6
-bower install angularjs-geolocation#0.1.1
-bower install bootstrap#3.3.5
-bower install holderjs
-bower install modernizr#3.0.0
-npm install
-SCRIPT
-
 Vagrant.configure(2) do |config|
   config.hostmanager.enabled = true
   config.vm.box = "ubuntu/trusty64"
@@ -32,6 +10,6 @@ Vagrant.configure(2) do |config|
     v.name = "mapapp"
     v.memory = 1024
   end
-  config.vm.provision "shell", inline: $priv
-  config.vm.provision "shell", inline: $unpriv, privileged: false
+  config.vm.provision :shell, path: "priv.sh"
+  config.vm.provision :shell, path: "unpriv.sh", privileged: false
 end
