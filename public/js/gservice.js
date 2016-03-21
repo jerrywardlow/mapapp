@@ -1,5 +1,5 @@
 // Create gservice factory.
-angular.module('gservice'[])
+angular.module('gservice', [])
     .factory('gservice', function($http){
         // Initialize variables
         // Service factory will return
@@ -30,7 +30,7 @@ angular.module('gservice'[])
                 locations = convertToMapPoints(response);
 
                 // Initialize map
-                Initialize(latitiude, longitude);
+                initialize(latitiude, longitude);
             }).error(function(){});
         };
 
@@ -69,7 +69,7 @@ angular.module('gservice'[])
             return locations;
         };
         // Initialize map
-        var Initialize = function(latitiude, longitude) {
+        var initialize = function(latitiude, longitude) {
             var myLatLng = {lat: selectedLat, lng: selectedLong};
 
             if (!map){
