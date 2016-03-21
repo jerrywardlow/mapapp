@@ -16,7 +16,7 @@ addCtrl.controller('addCtrl', function($scope, $http, geolocation){
     // Create new user based on form fields
     $scope.createUser = function() {
 
-        var user Data = {
+        var userData = {
             username: $scope.formData.username,
             gender: $scope.formData.gender,
             age: $scope.formData.age,
