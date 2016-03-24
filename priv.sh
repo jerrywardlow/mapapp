@@ -12,6 +12,9 @@ apt-get install -qqy build-essential
 curl -sL https://deb.nodesource.com/setup_5.x | bash
 apt-get install -qqy nodejs
 
+#--- Forver ---#
+npm install -g forever
+
 #--- Bower ---#
 npm install -g bower
 
